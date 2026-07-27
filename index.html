@@ -48,11 +48,13 @@
   .baseurl .label{font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-dim)}
   .endpoint{display:inline-flex;align-items:center;gap:4px;background:#070C1A;border:1px solid var(--line-2);border-radius:9px;padding:8px 8px 8px 18px}
   .endpoint-url{font-family:var(--mono);font-size:18px;color:var(--gold-soft);font-weight:600}
-  .endpoint-act{display:inline-grid;place-items:center;width:34px;height:34px;border-radius:7px;border:none;background:transparent;color:var(--ink-soft);cursor:pointer;transition:background-color .12s,color .12s}
+  .endpoint-act{position:relative;display:inline-grid;place-items:center;width:34px;height:34px;border-radius:7px;border:none;background:transparent;color:var(--ink-soft);cursor:pointer;transition:background-color .12s,color .12s}
   .endpoint-act:hover{background:rgba(255,255,255,.08);color:var(--ink)}
   .endpoint-act:focus-visible{outline:2px solid var(--gold-soft);outline-offset:2px}
   .endpoint-act svg{width:17px;height:17px}
   .endpoint-act.copied{color:var(--green)}
+  .endpoint-act.copied::after{content:"Copied";position:absolute;bottom:calc(100% + 8px);left:50%;transform:translateX(-50%);background:#070C1A;border:1px solid var(--line-2);color:var(--green);font-family:"Inter",system-ui,sans-serif;font-size:11px;font-weight:600;letter-spacing:.02em;padding:3px 9px;border-radius:6px;white-space:nowrap;pointer-events:none;box-shadow:0 4px 14px rgba(0,0,0,.35)}
+  .endpoint-act.copied::before{content:"";position:absolute;bottom:calc(100% + 3px);left:50%;transform:translateX(-50%);border:5px solid transparent;border-top-color:#070C1A;pointer-events:none}
   .pill{font-size:12px;font-weight:600;padding:4px 11px;border-radius:999px;border:1px solid rgba(59,186,122,.4);color:var(--green);background:rgba(59,186,122,.08)}
   .baseurl .meta{width:100%;font-size:13px;color:var(--ink-dim);border-top:1px solid var(--line);padding-top:12px;margin-top:4px}
 
@@ -215,10 +217,13 @@
     });
   })();
   (function(){
+    function cp(v){
+      if(navigator.clipboard&&navigator.clipboard.writeText){return navigator.clipboard.writeText(v);}
+      return new Promise(function(res,rej){try{var t=document.createElement('textarea');t.value=v;t.style.position='fixed';t.style.top='-9999px';document.body.appendChild(t);t.focus();t.select();var ok=document.execCommand('copy');document.body.removeChild(t);ok?res():rej();}catch(e){rej();}});
+    }
     document.querySelectorAll('[data-copy]').forEach(function(btn){
       btn.addEventListener('click',function(){
-        var v=btn.getAttribute('data-copy');
-        (navigator.clipboard?navigator.clipboard.writeText(v):Promise.reject()).then(function(){
+        cp(btn.getAttribute('data-copy')).then(function(){
           btn.classList.add('copied'); setTimeout(function(){btn.classList.remove('copied');},1200);
         }).catch(function(){});
       });
