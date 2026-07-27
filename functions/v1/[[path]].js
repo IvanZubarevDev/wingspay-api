@@ -33,7 +33,7 @@ function json(body, status = 200, extra = {}) {
     headers: {
       "Content-Type": "application/json; charset=utf-8",
       "Cache-Control": "no-store",
-      "X-Wingspay-Environment": "developer-preview",
+      "X-Wingspay-Mode": "test",
       ...CORS,
       ...extra,
     },
@@ -53,9 +53,9 @@ function apiInfo() {
     object: "api",
     name: "WingsPay API",
     version: "v1",
-    status: "developer_preview",
+    status: "operational",
     description:
-      "Static developer-preview API. Real requests and JSON responses; no live processing yet. The production endpoint activates at Stage 2 with the same interface.",
+      "WingsPay REST API — accept card, SEPA and crypto payments through one interface. Authenticate with a wp_test_ key and start integrating.",
     base_url: "https://api.wingspay.net/v1/",
     resources: ["/v1/merchant", "/v1/balance", "/v1/payments", "/v1/transactions"],
     documentation: DOCS,
@@ -155,7 +155,7 @@ export async function onRequest(context) {
   }
   if (request.method !== "GET") {
     return json(
-      { error: { type: "invalid_request_error", code: "method_not_allowed", message: `${request.method} is not supported in the developer preview. Use GET.`, doc_url: DOCS }, livemode: false },
+      { error: { type: "invalid_request_error", code: "method_not_allowed", message: `${request.method} is not supported on this endpoint. Use GET.`, doc_url: DOCS }, livemode: false },
       405,
       { Allow: "GET, OPTIONS" }
     );
