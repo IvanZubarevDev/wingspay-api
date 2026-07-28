@@ -46,7 +46,7 @@ const minsAgo = (m) => now() - m * 60;
 const hoursAgo = (h) => now() - h * 3600;
 const daysAgo = (d) => now() - d * 86400;
 
-// ---- canonical Demo Merchant Ltd. (agrees with FAKE_DATA_SPECIFICATION.md
+// ---- canonical Example Merchant Ltd. (agrees with FAKE_DATA_SPECIFICATION.md
 //      / MERCHANT_STORY.md — same numbers Dashboard & Auth show) ----
 function apiInfo() {
   return {
@@ -69,9 +69,9 @@ function merchant() {
   return {
     object: "merchant",
     id: "mrc_8f3e2a1c9b4d7e6f",
-    name: "Demo Merchant Ltd.",
+    name: "Example Merchant Ltd.",
     status: "active",
-    email: "demo@wingspay.net",
+    email: "explore@wingspay.net",
     country: "NL",
     region: "Europe",
     industry: "igaming",
