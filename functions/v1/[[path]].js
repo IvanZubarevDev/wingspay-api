@@ -27,6 +27,19 @@ const CORS = {
   "Access-Control-Max-Age": "86400",
 };
 
+// Cloudflare Pages Functions bypass the repo's `_headers` file entirely,
+// so every response from this Function must set its own security headers
+// to match the standard 5-header set every static page on the platform
+// gets via `_headers`. Added 2026-08-03 (ENGINEERING_BACKLOG.md 1.11) —
+// this endpoint previously shipped with none of them.
+const SECURITY_HEADERS = {
+  "X-Content-Type-Options": "nosniff",
+  "Referrer-Policy": "strict-origin-when-cross-origin",
+  "X-Frame-Options": "DENY",
+  "Permissions-Policy": "geolocation=(), microphone=(), camera=(), payment=(), usb=()",
+  "Content-Security-Policy": "default-src 'none'; frame-ancestors 'none'",
+};
+
 function json(body, status = 200, extra = {}) {
   return new Response(JSON.stringify(body, null, 2), {
     status,
@@ -35,6 +48,7 @@ function json(body, status = 200, extra = {}) {
       "Cache-Control": "no-store",
       "X-Wingspay-Mode": "test",
       ...CORS,
+      ...SECURITY_HEADERS,
       ...extra,
     },
   });
@@ -151,7 +165,7 @@ export async function onRequest(context) {
   const { request, params } = context;
 
   if (request.method === "OPTIONS") {
-    return new Response(null, { status: 204, headers: CORS });
+    return new Response(null, { status: 204, headers: { ...CORS, ...SECURITY_HEADERS } });
   }
   if (request.method !== "GET") {
     return json(
