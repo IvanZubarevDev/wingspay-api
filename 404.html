@@ -51,6 +51,16 @@
   .terminal pre{padding:18px 18px 20px;font-size:13.5px;line-height:1.7;overflow-x:auto;color:#CBD4E8}
   .out .k{color:#8FB6FF}.out .s{color:#E0B05A}.out .n{color:#7FE0A6}.out .b{color:#C79BF0}
 
+  .cta-row{margin-top:28px;display:flex;flex-wrap:wrap;gap:12px;align-items:center}
+  .btn-primary{background:linear-gradient(135deg,var(--gold),var(--gold-soft));color:#0B1226;font-weight:700;font-size:14px;padding:12px 22px;border-radius:8px;display:inline-block}
+  .btn-secondary{color:var(--gold-soft);font-size:14px;font-weight:600}
+
+  .explainer{margin-top:38px;max-width:640px;border-top:1px solid var(--line);padding-top:24px}
+  .explainer h2{font-family:var(--mono);font-size:13px;letter-spacing:.04em;text-transform:uppercase;color:var(--ink-soft);margin-bottom:10px}
+  .explainer p{font-size:13.5px;color:var(--ink-dim);line-height:1.7}
+  .explainer p+p{margin-top:8px}
+  .explainer code{background:#070C1A;border:1px solid var(--line);border-radius:4px;padding:1px 6px;font-size:12.5px;color:var(--gold-soft)}
+
   .section{padding:40px 0}
   .cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px}
   .card{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:20px;transition:border-color .15s,transform .15s;display:block}
@@ -80,30 +90,32 @@
 <main class="wrap">
   <section class="hero">
     <div class="badge"><span class="dot"></span> 404 · Not Found</div>
-    <h1>This endpoint doesn't exist.</h1>
-    <p class="lead">There's no route here on the WingsPay API. Check the path against the API reference, or call the base URL below to see what's available.</p>
+    <h1>This page doesn't exist.</h1>
+    <p class="lead">There's nothing at this address on the WingsPay API site. Check the path against the API reference, or head back to API Home below.</p>
 
     <div class="terminal">
       <div class="bar">
         <i class="r"></i><i class="y"></i><i class="g"></i>
-        <span class="t">response</span>
+        <span class="t">what an unknown /v1/ route actually returns</span>
       </div>
       <pre class="out">{
   <span class="k">"error"</span>: {
     <span class="k">"type"</span>: <span class="s">"invalid_request_error"</span>,
     <span class="k">"code"</span>: <span class="s">"resource_missing"</span>,
-    <span class="k">"message"</span>: <span class="s">"Unknown endpoint. See the API reference for available resources."</span>
+    <span class="k">"message"</span>: <span class="s">"Unknown endpoint: /v1/&lt;path&gt;. See the API reference for available resources."</span>
   }
 }</pre>
     </div>
-  </section>
 
-  <section class="section">
-    <h2 style="font-family:var(--mono);font-size:15px;letter-spacing:.04em;text-transform:uppercase;color:var(--ink-soft);margin-bottom:16px">Find what you need</h2>
-    <div class="cards">
-      <a class="card" href="/"><div style="font-size:11px;color:var(--ink-dim);font-family:var(--mono)">01</div><h3>API Home</h3><p>Base URL, a live sample request, and the full resource list.</p><span class="go">Back to API Home →</span></a>
-      <a class="card" href="https://docs.wingspay.net/api-reference.html"><div style="font-size:11px;color:var(--ink-dim);font-family:var(--mono)">02</div><h3>API Reference</h3><p>Every endpoint, parameter and response shape, with examples.</p><span class="go">Read the reference →</span></a>
-      <a class="card" href="https://docs.wingspay.net/quickstart.html"><div style="font-size:11px;color:var(--ink-dim);font-family:var(--mono)">03</div><h3>Quick Start</h3><p>From key to first successful request in a few copy-paste steps.</p><span class="go">Start the guide →</span></a>
+    <div class="cta-row">
+      <a class="btn-primary" href="/">Return to API Home</a>
+      <a class="btn-secondary" href="https://docs.wingspay.net/api-reference.html">API Reference →</a>
+    </div>
+
+    <div class="explainer">
+      <h2>Page vs. endpoint</h2>
+      <p>This is an ordinary web page 404 — you followed a link or typed a URL for a page that doesn't exist on <code>api.wingspay.net</code> (the human-facing site, not the API itself).</p>
+      <p>If you're integrating and called a REST endpoint under <code>/v1/</code> that doesn't exist, you get a different, real JSON <code>404</code> response like the one shown above — not this HTML page. See the <a href="https://docs.wingspay.net/api-reference.html" style="color:var(--gold-soft)">API Reference</a> for every valid <code>/v1/</code> route.</p>
     </div>
   </section>
 </main>
