@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>404 — Endpoint Not Found — WingsPay API</title>
+<meta name="description" content="This page or endpoint does not exist on the WingsPay API. See the API reference for available resources.">
+<meta name="robots" content="noindex,follow">
+<link rel="canonical" href="https://api.wingspay.net/404.html">
+<meta property="og:title" content="404 — Endpoint Not Found — WingsPay API">
+<meta property="og:description" content="This page or endpoint does not exist on the WingsPay API. See the API reference for available resources.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://api.wingspay.net/404.html">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --navy:#0B1226; --navy-2:#0F1830; --surface:#111B39; --line:rgba(255,255,255,.10);
+    --line-2:rgba(255,255,255,.16); --ink:#ECEEF2; --ink-soft:#9AA6BF; --ink-dim:#6B7893;
+    --gold:#C9952F; --gold-soft:#E0B05A; --green:#3BbA7a; --amber:#D9A441; --red:#D9534F;
+    --mono:"Space Grotesk",ui-monospace,SFMono-Regular,Menlo,monospace;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html,body{height:100%}
+  body{font-family:"Inter",system-ui,sans-serif;background:var(--navy);color:var(--ink);line-height:1.6;-webkit-font-smoothing:antialiased;min-height:100vh;display:flex;flex-direction:column}
+  a{color:inherit;text-decoration:none}
+  code,pre,.mono{font-family:var(--mono)}
+  .wrap{max-width:1080px;margin:0 auto;padding:0 24px}
+
+  header{border-bottom:1px solid var(--line);position:sticky;top:0;background:rgba(11,18,38,.85);backdrop-filter:blur(10px);z-index:10}
+  .nav{display:flex;align-items:center;justify-content:space-between;height:64px}
+  .brand{display:flex;align-items:center;gap:10px;font-family:var(--mono);font-weight:600;font-size:17px}
+  .brand .logo{width:26px;height:26px;border-radius:6px;background:linear-gradient(135deg,var(--gold),var(--gold-soft));display:grid;place-items:center;color:#0B1226;font-weight:700;font-size:13px}
+  .brand .tag{font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--gold-soft);border:1px solid rgba(224,176,90,.4);border-radius:999px;padding:2px 9px;font-family:"Inter"}
+  .nav-links{display:flex;gap:22px;align-items:center;font-size:14px;color:var(--ink-soft)}
+  .nav-links a:hover{color:var(--ink)}
+
+  main{flex:1;display:flex;flex-direction:column;justify-content:center}
+  .hero{padding:70px 0 34px}
+  .badge{display:inline-flex;align-items:center;gap:8px;font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--red);margin-bottom:18px}
+  .badge .dot{width:8px;height:8px;border-radius:50%;background:var(--red);box-shadow:0 0 0 4px rgba(217,83,79,.15)}
+  h1{font-family:var(--mono);font-size:44px;line-height:1.1;font-weight:700;letter-spacing:-.02em}
+  .lead{font-size:18px;color:var(--ink-soft);max-width:640px;margin-top:16px}
+
+  .terminal{margin-top:34px;background:#070C1A;border:1px solid var(--line-2);border-radius:12px;overflow:hidden;max-width:640px}
+  .terminal .bar{display:flex;align-items:center;gap:8px;padding:11px 16px;border-bottom:1px solid var(--line);background:#0A1122}
+  .terminal .bar i{width:11px;height:11px;border-radius:50%;display:inline-block}
+  .terminal .bar .r{background:#E36049}.terminal .bar .y{background:#E0B05A}.terminal .bar .g{background:#3BBA7A}
+  .terminal .bar .t{margin-left:8px;font-size:12px;color:var(--ink-dim);font-family:var(--mono)}
+  .terminal pre{padding:18px 18px 20px;font-size:13.5px;line-height:1.7;overflow-x:auto;color:#CBD4E8}
+  .out .k{color:#8FB6FF}.out .s{color:#E0B05A}.out .n{color:#7FE0A6}.out .b{color:#C79BF0}
+
+  .cta-row{margin-top:28px;display:flex;flex-wrap:wrap;gap:12px;align-items:center}
+  .btn-primary{background:linear-gradient(135deg,var(--gold),var(--gold-soft));color:#0B1226;font-weight:700;font-size:14px;padding:12px 22px;border-radius:8px;display:inline-block}
+  .btn-secondary{color:var(--gold-soft);font-size:14px;font-weight:600}
+
+  .explainer{margin-top:38px;max-width:640px;border-top:1px solid var(--line);padding-top:24px}
+  .explainer h2{font-family:var(--mono);font-size:13px;letter-spacing:.04em;text-transform:uppercase;color:var(--ink-soft);margin-bottom:10px}
+  .explainer p{font-size:13.5px;color:var(--ink-dim);line-height:1.7}
+  .explainer p+p{margin-top:8px}
+  .explainer code{background:#070C1A;border:1px solid var(--line);border-radius:4px;padding:1px 6px;font-size:12.5px;color:var(--gold-soft)}
+
+  .section{padding:40px 0}
+  .cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px}
+  .card{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:20px;transition:border-color .15s,transform .15s;display:block}
+  .card:hover{border-color:var(--line-2);transform:translateY(-2px)}
+  .card h3{font-size:16px;margin:6px 0 6px;font-weight:600}
+  .card p{font-size:13.5px;color:var(--ink-soft)}
+  .card .go{color:var(--gold-soft);font-size:13px;font-weight:600;margin-top:12px;display:inline-block}
+
+  footer{border-top:1px solid var(--line);margin-top:30px;padding:28px 0;color:var(--ink-dim);font-size:13.5px}
+  footer .row{display:flex;flex-wrap:wrap;gap:8px 22px;align-items:center;justify-content:space-between}
+  footer a:hover{color:var(--ink-soft)}
+  @media(max-width:640px){h1{font-size:34px}.nav-links a:not(.keep){display:none}}
+</style>
+</head>
+<body>
+<header>
+  <div class="wrap nav">
+    <a class="brand" href="/"><span class="logo">W</span> WingsPay <span class="tag">API</span></a>
+    <nav class="nav-links">
+      <a href="https://docs.wingspay.net/quickstart.html">Quick Start</a>
+      <a href="https://docs.wingspay.net/api-reference.html">API Reference</a>
+      <a class="keep" href="https://sandbox.wingspay.net">Sandbox</a>
+    </nav>
+  </div>
+</header>
+
+<main class="wrap">
+  <section class="hero">
+    <div class="badge"><span class="dot"></span> 404 · Not Found</div>
+    <h1>This page doesn't exist.</h1>
+    <p class="lead">There's nothing at this address on the WingsPay API site. Check the path against the API reference, or head back to API Home below.</p>
+
+    <div class="terminal">
+      <div class="bar">
+        <i class="r"></i><i class="y"></i><i class="g"></i>
+        <span class="t">what an unknown /v1/ route actually returns</span>
+      </div>
+      <pre class="out">{
+  <span class="k">"error"</span>: {
+    <span class="k">"type"</span>: <span class="s">"invalid_request_error"</span>,
+    <span class="k">"code"</span>: <span class="s">"resource_missing"</span>,
+    <span class="k">"message"</span>: <span class="s">"Unknown endpoint: /v1/&lt;path&gt;. See the API reference for available resources."</span>
+  }
+}</pre>
+    </div>
+
+    <div class="cta-row">
+      <a class="btn-primary" href="/">Return to API Home</a>
+      <a class="btn-secondary" href="https://docs.wingspay.net/api-reference.html">API Reference →</a>
+    </div>
+
+    <div class="explainer">
+      <h2>Page vs. endpoint</h2>
+      <p>This is an ordinary web page 404 — you followed a link or typed a URL for a page that doesn't exist on <code>api.wingspay.net</code> (the human-facing site, not the API itself).</p>
+      <p>If you're integrating and called a REST endpoint under <code>/v1/</code> that doesn't exist, you get a different, real JSON <code>404</code> response like the one shown above — not this HTML page. See the <a href="https://docs.wingspay.net/api-reference.html" style="color:var(--gold-soft)">API Reference</a> for every valid <code>/v1/</code> route.</p>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap row">
+    <span>© 2026 WingsPay</span>
+    <nav style="display:flex;gap:20px;flex-wrap:wrap">
+      <a href="https://docs.wingspay.net/">Documentation</a>
+      <a href="https://sandbox.wingspay.net">Sandbox</a>
+      <a href="https://status.wingspay.net/">System Status</a>
+      <a href="https://wingspay.net/">wingspay.net</a>
+    </nav>
+  </div>
+</footer>
+</body>
+</html>
